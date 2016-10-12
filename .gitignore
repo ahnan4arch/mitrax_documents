@@ -1,0 +1,8 @@
+overview/*.aux
+overview/*.log
+overview/*.nav
+overview/*.out
+overview/*.snm
+overview/*.synctex.gz
+overview/*.toc
+overview/*.vrb
