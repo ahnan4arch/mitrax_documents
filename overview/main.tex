@@ -12,13 +12,13 @@
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
 
-\title{Mitrax}
+\title{mitrax}
 \author{Benjamin Buch}
 \date{11. Oktober 2016}
 
 \begin{document}
 \begin{frame}
-    \frametitle{Kernverbesserungen von Mitrax}
+    \frametitle{Kernverbesserungen von mitrax}
     \begin{itemize}
         \item Eigener Datentyp für Zeilen und Spalten
         \item Elementrepräsentationsunabhängige Schnittstelle
@@ -35,28 +35,28 @@
     \begin{itemize}
         \item Anzahl Zeilen und Spalten; bekannt zur:
         \begin{itemize}
-            \item Compilezeit (Mitrax, Eigen, Boost.uBLAS)
-            \item Laufzeit (Mitrax, Eigen)
+            \item Compilezeit (mitrax, Eigen, Boost.uBLAS)
+            \item Laufzeit (mitrax, Eigen)
         \end{itemize}
         \item Entsprechend rechteckig angeordnete Elemente gleichen Typs
         \begin{itemize}
-            \item Existieren im Speicher (Mitrax, Eigen, Boost.uBLAS)
-            \item Zur Compilezeit bekannt (Mitrax)
-            \item Erzeugung bei Zugriff (Mitrax)
+            \item Existieren im Speicher (mitrax, Eigen, Boost.uBLAS)
+            \item Zur Compilezeit bekannt (mitrax)
+            \item Erzeugung bei Zugriff (mitrax)
         \end{itemize}
     \end{itemize}
 \end{frame}
 \begin{frame}
     \frametitle{Bereitstellung der Elemente einer Matrix}
     \begin{itemize}
-        \item \textbf{constexpr}; Elemente sind zur Compilezeit bekannt und können direkt für Berechnungen verwendet werden. (Mitrax)
-        \item \textbf{Stack} (Mitrax, Eigen)
-        \item \textbf{Heap} (Mitrax, Eigen, Boost.uBLAS)
-        \item \textbf{View}; Das Matrix-Objekt besitzt die Daten nicht selbst, sondern ermöglicht nur den Zugriff. (zukünftig Mitrax)
-        \item \textbf{Adapter}; Es wird ein anderer Datentyp (z. B. Eigen::Matrix) verwendet (Mitrax)
-        \item \textbf{Funktion}; Beim Zugriff wird der Wert eines Elementes entsprechend seiner Position in der Matrix und einer gegebenen Berechungsvorschrift berechnet. (zukünftig Mitrax)
-        \item \textbf{GPU-Speicher} (zukünftig Mitrax, teilweise Eigen)
-        \item \textbf{anderer Speicher}; Festplatte, FPGA … (zukünftig Mitrax)
+        \item \textbf{constexpr}; Elemente sind zur Compilezeit bekannt und können direkt für Berechnungen verwendet werden. (mitrax)
+        \item \textbf{Stack} (mitrax, Eigen)
+        \item \textbf{Heap} (mitrax, Eigen, Boost.uBLAS)
+        \item \textbf{View}; Das Matrix-Objekt besitzt die Daten nicht selbst, sondern ermöglicht nur den Zugriff. (zukünftig mitrax)
+        \item \textbf{Adapter}; Es wird ein anderer Datentyp (z. B. Eigen::Matrix) verwendet (mitrax)
+        \item \textbf{Funktion}; Beim Zugriff wird der Wert eines Elementes entsprechend seiner Position in der Matrix und einer gegebenen Berechungsvorschrift berechnet. (zukünftig mitrax)
+        \item \textbf{GPU-Speicher} (zukünftig mitrax, teilweise Eigen)
+        \item \textbf{anderer Speicher}; Festplatte, FPGA … (zukünftig mitrax)
     \end{itemize}
 \end{frame}
 \begin{frame}
@@ -103,11 +103,11 @@ auto matrix = make_matrix(3_C, 2_R, {
         \item Beim Sobel-Operator sind Dimensionen und Elemente der Faltungsmatrix zur Compilezeit bekannt
         \item Anmerkungen zum folgenden Benchmark:
         \begin{itemize}
-            \item Die Faltungsoperation ist für Mitrax, Boost.uBLAS und Eigen identisch implementiert
+            \item Die Faltungsoperation ist für mitrax, Boost.uBLAS und Eigen identisch implementiert
             \item Die Bildmatrix liegt immer auf dem Heap und hat Laufzeit-Dimensionen
             \item Bei der Faltungsmatrix richtet sich dies nach der verwendeten Bibliothek:
             \begin{itemize}
-                \item Mitrax: Compilezeit-Dimensionen, Daten sind constexpr
+                \item mitrax: Compilezeit-Dimensionen, Daten sind constexpr
                 \item Eigen: Compilezeit-Dimensionen, Daten auf dem Stack
                 \item Boost.uBLAS: Laufzeit-Dimensionen, Daten auf dem Heap
             \end{itemize}
@@ -131,7 +131,7 @@ vector[2] = 5;    // vereinfachter Vektor-Zugriff
 \end{verbatim}
             \item Vereinfachte Erstellung:
 \begin{verbatim}
-auto vector = make_col_vector(3_R, {1, 2, 3});
+auto vector = make_vector(3_R, {1, 2, 3});
 \end{verbatim}
         \end{itemize}
     \end{itemize}
