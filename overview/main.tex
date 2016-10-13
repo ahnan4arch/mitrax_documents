@@ -6,7 +6,7 @@
 \usepackage{amssymb}
 \usepackage{pifont}
 \usepackage{graphicx}
-\usepackage{verbatim}
+\usepackage{minted}
 \usepackage{default}
 
 \newcommand{\cmark}{\ding{51}}
@@ -84,16 +84,16 @@
     \item Umsetzung:
     \begin{itemize}
         \item Initialisierung mit Default-Value
-\begin{verbatim}
+\begin{minted}{cpp}
 auto matrix = make_matrix_v(3_C, 2_R, 3.f);
-\end{verbatim}
+\end{minted}
         \item Direkte elementweise Initialisierung
-\begin{verbatim}
+\begin{minted}{cpp}
 auto matrix = make_matrix(3_C, 2_R, {
     {1, 2, 3},
     {4, 5, 6}
 });
-\end{verbatim}
+\end{minted}
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -124,15 +124,15 @@ auto matrix = make_matrix(3_C, 2_R, {
         \item Falls Zeilen oder Spalten zur Compilezeit den Wert 1 haben, werden durch die Schnittstelle zusätzliche Funktionen angeboten, ohne dass sich die Implementierung darum kümmern muss
         \begin{itemize}
             \item Zugriffsoperator für Vektoren:
-\begin{verbatim}
+\begin{minted}{cpp}
 auto vector = make_matrix(1_C, 3_R, {{1}, {2}, {3}});
 vector(0, 2) = 7; // normaler Matrix-Zugriff
 vector[2] = 5;    // vereinfachter Vektor-Zugriff
-\end{verbatim}
+\end{minted}
             \item Vereinfachte Erstellung:
-\begin{verbatim}
+\begin{minted}{cpp}
 auto vector = make_vector(3_R, {1, 2, 3});
-\end{verbatim}
+\end{minted}
         \end{itemize}
     \end{itemize}
 \end{frame}
