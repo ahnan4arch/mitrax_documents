@@ -27,7 +27,7 @@
         \end{itemize}
         \item Intuitive und sichere Initialisierungssyntax
         \item „Zero-Overhead“ – Compiler kann bestmöglich optimieren
-        \item Support von \texttt{constexpr}
+        \item Support von \mintinline{cpp}{constexpr}
     \end{itemize}
 \end{frame}
 \begin{frame}
@@ -63,14 +63,14 @@
     \frametitle{Typisierte Zeilen \& Spalten}
     \begin{itemize}
         \item Eigener Typ für Zeilen und Spalten \\
-            \hspace{1em}\texttt{struct col\_t< 4 >} \\
-            \hspace{1em}\texttt{struct row\_t< 7 >}
+            \hspace{1em}\mintinline{cpp}{struct col_t< 4 >} \\
+            \hspace{1em}\mintinline{cpp}{struct row_t< 7 >}
         \item User-defined literals \\
-        \hspace{1em}\texttt{4\_C} \\
-        \hspace{1em}\texttt{7\_R}
+        \hspace{1em}\mintinline{cpp}{4_C} \\
+        \hspace{1em}\mintinline{cpp}{7_R}
         \item Typsicheres Rechnen mit Dimensionen \\
-        \hspace{1em}\texttt{4\_C + 3\_C \cmark} \\
-        \hspace{1em}\texttt{7\_R + 2\_C \xmark}
+        \hspace{1em}\mintinline{cpp}{4_C + 3_C} \cmark \\
+        \hspace{1em}\mintinline{cpp}{7_R + 2_C} \xmark
     \end{itemize}
 \end{frame}
 \begin{frame}[fragile]
