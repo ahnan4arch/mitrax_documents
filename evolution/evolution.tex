@@ -1,0 +1,60 @@
+\documentclass{beamer}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=new, babelshorthands=true]{german}
+
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{epigraph}
+\usepackage{default}
+
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\title{mitrax}
+\author{Benjamin Buch}
+\date{18. Oktober 2016}
+
+\subtitle{Eine moderne Bibliothek für Matritzen und Bildverarbeitung.}
+
+
+\begin{document}
+%\begin{frame}
+%    \frametitle{Designentscheidungen für die mitrax-Bibliothek}
+%\end{frame}
+    \maketitle
+\begin{frame}
+    \frametitle{Kernforderungen an mitrax}
+    \begin{itemize}
+        \item Benutzerfreundlichkeit\\
+        \begin{quote}»Make simple tasks simple!« \hspace{1em} — Bjarne Stroustrup\end{quote}
+        \item Erweiterbarkeit\\
+        \hspace{1em}
+        \item Performance („zero overhead“)\\
+        \begin{quote}»Don’t pay for what you don’t use.«\end{quote}
+        \item Support für \mintinline{cpp}{constexpr}\\
+        \hspace{1em}
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Was soll die »matrix« Schnittstelle bieten}
+    \begin{itemize}
+        \item Einheitliches Interface für unterschiedliche Implementierungen
+        \item »Zero Overhead«
+        \item Bereitstellung von Standardfunktionen (Implementierung muss nur wenige Basisfunktionen bereitstellen)
+        \item Erweiterbarkeit
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \frametitle{Mögliche Ansätz für die Schnittstelle »matrix«}
+    \begin{itemize}
+        \item Als Basisklasse der Implementierungen (virtuelle Funktionen zum Zugriff)
+        \item Vererbung mit abgeleiteter Klasse als Template-Argument
+        \item Implementierung als Template-Argument ohne Vererbung
+        \item Schnittstelle als Mixin für die Implementierungen
+    \end{itemize}
+\end{frame}
+
+\end{document}
