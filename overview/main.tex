@@ -20,7 +20,7 @@
 \begin{frame}
     \frametitle{Kernverbesserungen von mitrax}
     \begin{itemize}
-        \item Eigener Datentyp für Zeilen und Spalten
+        \item Eigener Datentyp für Zeilen und Spalten (versehentliches Vertauschen kann so bereits beim Compilieren erkannt werden)
         \item Elementrepräsentationsunabhängige Schnittstelle
         \begin{itemize}
             \item Leicht erweiterbar für neue Arten der Datenrepräsentation (Adapter, Views, GPU …)
@@ -49,9 +49,9 @@
 \begin{frame}
     \frametitle{Bereitstellung der Elemente einer Matrix}
     \begin{itemize}
-        \item \textbf{constexpr}; Elemente sind zur Compilezeit bekannt und können direkt für Berechnungen verwendet werden. (mitrax)
         \item \textbf{Stack} (mitrax, Eigen)
         \item \textbf{Heap} (mitrax, Eigen, Boost.uBLAS)
+        \item \textbf{constexpr}; Elemente sind zur Compilezeit bekannt und können direkt für Berechnungen verwendet werden. (mitrax)
         \item \textbf{View}; Das Matrix-Objekt besitzt die Daten nicht selbst, sondern ermöglicht nur den Zugriff. (mitrax)
         \item \textbf{Adapter}; Es wird ein anderer Datentyp (z. B. Eigen::Matrix) verwendet (mitrax)
         \item \textbf{Funktion}; Beim Zugriff wird der Wert eines Elementes entsprechend seiner Position in der Matrix und einer gegebenen Berechungsvorschrift berechnet. (mitrax)
@@ -79,7 +79,7 @@
         \item Anforderungen:
         \begin{itemize}
             \item Alle Elemente haben nach der Initialisierung einen definierten Wert
-            \item Direkte Initialisierung für kleine Matritzen
+            \item Unterstützung für direkte elementweise Initialisierung
         \end{itemize}
     \item Umsetzung:
     \begin{itemize}
@@ -108,6 +108,8 @@ auto matrix = make_matrix(3_C, 2_R, {
             \item Bei der Faltungsmatrix richtet sich dies nach der verwendeten Bibliothek:
             \begin{itemize}
                 \item mitrax: Compilezeit-Dimensionen, Daten sind constexpr
+                \item mitrax Eigen Adapter: Compilezeit-Dimensionen, Daten sind \mintinline{cpp}{constexpr}
+                    (für die Bildmatrix wird eine Adapter-Klasse verwendet, welche intern Eigen::Matrix verwendet)
                 \item Eigen: Compilezeit-Dimensionen, Daten auf dem Stack
                 \item Boost.uBLAS: Laufzeit-Dimensionen, Daten auf dem Heap
             \end{itemize}
@@ -116,6 +118,9 @@ auto matrix = make_matrix(3_C, 2_R, {
 \end{frame}
 \begin{frame}
     \frametitle{Anwendung: \texttt{constexpr} Matrix (2)}
+    \begin{itemize}
+        \item mitrax ist dank \mintinline{cpp}{constexpr} $27\%$ schneller als Eigen
+    \end{itemize}
     \includegraphics[width=\textwidth]{images/sobel2.pdf}
 \end{frame}
 \begin{frame}[fragile]
