@@ -42,9 +42,11 @@
     \frametitle{Was soll die »matrix« Schnittstelle bieten}
     \begin{itemize}
         \item Einheitliches Interface für unterschiedliche Implementierungen
-        \item »Zero Overhead«
+        \item Es sollte einfach sein, sie korrekt zu verwenden
+        \item Falsche Verwendung sollte möglichst während der Compilierung erkannt werden
+        \item Es sollte einfach sein, neue Implementierungen zu erstellen
         \item Bereitstellung von Standardfunktionen (Implementierung muss nur wenige Basisfunktionen bereitstellen)
-        \item Erweiterbarkeit
+        \item Es dürfen keine Laufzeitverluste durch die Schnittstelle auftreten (»Zero Overhead«)
     \end{itemize}
 \end{frame}
 \begin{frame}
@@ -53,8 +55,8 @@
         \item Als Basisklasse der Implementierungen (virtuelle Funktionen zum Zugriff)
         \item Vererbung mit abgeleiteter Klasse als Template-Argument
         \item Implementierung als Template-Argument ohne Vererbung
-        \item Schnittstelle als Mixin für die Implementierungen
+        \item Schnittstelle als Mixin für die Implementierungen, concept\footnotemark »matrix« in Algortihmen
     \end{itemize}
+    \footnotetext[1]{Concepts Technical Specification ISO/IEC TS 19217:2015}
 \end{frame}
-
 \end{document}
